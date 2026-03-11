@@ -1,0 +1,67 @@
+public class Theatre {
+
+    public static void main(String[] args) {
+
+        // актеры
+        Actor actor1 = new Actor("Данила", "Козловский", 181);
+        Actor actor2 = new Actor("Иван", "Янковский", 175);
+        Actor actor3 = new Actor("Петр", "Сидоров", 182);
+
+        // режиссёры
+        Director director1 = new Director("Лев", "Додин", Gender.MALE);
+        Director director2 = new Director("Федор", "Бондарчук", Gender.MALE);
+
+        // спектакли
+        Performance drama = new Performance("Драматический спектакль");
+
+        Opera opera = new Opera(
+                "Кармен",
+                "Жорж Бизе",
+                "Текст либретто оперы Кармен",
+                40
+        );
+
+        Ballet ballet = new Ballet(
+                "Щелкунчик",
+                "Пётр Чайковский",
+                "Текст либретто балета Щелкунчик",
+                "Юрий Григорьвич"
+        );
+
+
+        drama.addActor(actor1);
+        drama.addActor(actor2);
+
+        opera.addActor(actor2);
+        opera.addActor(actor3);
+
+        ballet.addActor(actor1);
+        ballet.addActor(actor3);
+
+
+        System.out.println("Актеры драматического спектакля:");
+        drama.printActors();
+
+        System.out.println("\nАктеры оперы:");
+        opera.printActors();
+
+        System.out.println("\nАктеры балета:");
+        ballet.printActors();
+
+
+        System.out.println("\nЗамена актера в драме:");
+        drama.replaceActor(actor3, "Козловский");
+        drama.printActors();
+
+
+        System.out.println("\nПопытка заменить несуществующего актера:");
+        opera.replaceActor(actor1, "Неизвестный");
+
+
+        System.out.println("\nЛибретто оперы:");
+        opera.printLibretto();
+
+        System.out.println("\nЛибретто балета:");
+        ballet.printLibretto();
+    }
+}
