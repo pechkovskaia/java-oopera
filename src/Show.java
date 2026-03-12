@@ -3,11 +3,15 @@ import java.util.List;
 
 public class Show {
 
-    private String title;
+    protected String title;
+    protected int duration;
+    protected Person director;
     protected List<Actor> listOfActors;
 
-    public Show(String title) {
+    public Show(String title, int duration, Person director) {
         this.title = title;
+        this.duration = duration;
+        this.director = director;
         this.listOfActors = new ArrayList<>();
     }
 
@@ -23,7 +27,7 @@ public class Show {
 
         for (int i = 0; i < listOfActors.size(); i++) {
 
-            if (listOfActors.get(i).getLastName().equals(lastName)) {
+            if (listOfActors.get(i).lastName.equals(lastName)) {
                 listOfActors.set(i, newActor);
                 System.out.println("Замена актера произведена.");
                 return;
@@ -37,5 +41,9 @@ public class Show {
         for (Actor actor : listOfActors) {
             System.out.println(actor);
         }
+    }
+
+    public void printDirector() {
+        System.out.println("Режиссёр: " + director);
     }
 }

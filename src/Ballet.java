@@ -2,8 +2,10 @@ public class Ballet extends MusicalShow {
 
     private String choreographer;
 
-    public Ballet(String title, String musicAuthor, String librettoText, String choreographer) {
-        super(title, musicAuthor, librettoText);
+    public Ballet(String title, int duration, Person director,
+                  String musicAuthor, String librettoText, String choreographer) {
+
+        super(title, duration, director, musicAuthor, librettoText);
         this.choreographer = choreographer;
     }
 }

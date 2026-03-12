@@ -1,30 +1,38 @@
+import java.util.Objects;
+
 public class Person {
 
-    private String firstName;
-    private String lastName;
-    private Gender gender;
-    private int height;
+    protected String firstName;
+    protected String lastName;
+    protected Gender gender;
 
-    public Person(String firstName, String lastName, Gender gender, int height) {
+    public Person(String firstName, String lastName, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.height = height;
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) &&
+                Objects.equals(lastName, person.lastName) &&
+                gender == person.gender;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, gender);
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
-    public int getHeight() {
-        return height;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                '}';
     }
 }
